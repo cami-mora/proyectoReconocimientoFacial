@@ -10,11 +10,12 @@ Este proyecto es un sistema de control de acceso basado en reconocimiento facial
 * **Control de Hardware (Lógica de Compuertas):**
     * **Acceso Concedido (Buffer / Compuerta YES):** Si el usuario es reconocido, la ESP32 recibe un `1`, encendiendo un LED Verde y activando el servomotor.
     * **Acceso Denegado (Inversor / Compuerta NOT):** Si el usuario es desconocido o no hay nadie, la ESP32 recibe un `0`, manteniendo la puerta cerrada y encendiendo un LED Rojo.
+    * **Validación de Apertura (Multiplicador / Compuerta AND):** El sistema exige que ocurran dos eventos a la vez para evaluar el acceso: que se presione el botón (Entrada A) Y que el algoritmo detecte un rostro conocido (Entrada B). Ambas deben ser verdaderas (`1` y `1`) para proceder.
 
 ## 🛠️ Requisitos del Sistema
 
 ### Hardware Necesario
-* Cámara web (integrada o por USB).
+* Cámara web (del pc).
 * Placa ESP32 (o equivalente compatible con Arduino IDE).
 * 1x Servomotor (ej. SG90).
 * 1x LED Verde (Acceso concedido).
@@ -25,7 +26,3 @@ Este proyecto es un sistema de control de acceso basado en reconocimiento facial
 ### Software y Librerías
 * **Python 3.x**
 * **Arduino IDE** (para cargar el código a la ESP32)
-
-Para instalar las dependencias de Python necesarias, ejecuta el siguiente comando en tu terminal:
-```bash
-pip install opencv-contrib-python pyserial numpy
