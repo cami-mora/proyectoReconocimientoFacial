@@ -24,5 +24,16 @@ Este proyecto es un sistema de control de acceso basado en reconocimiento facial
 * Resistencias y cables jumper.
 
 ### Software y Librerías
-* **Python 3.x**
-* **Arduino IDE** (para cargar el código a la ESP32)
+
+**Entorno de Python:**
+* **Python 3.x:** Lenguaje principal para la lógica del servidor y visión artificial.
+* **Librerías de Python requeridas:**
+    * `opencv-contrib-python`: Para el procesamiento de imágenes, captura de video y el algoritmo de reconocimiento facial (LBPH). *Nota: Es crucial instalar la versión 'contrib' y no la normal para tener acceso a los módulos de biometría.*
+    * `pyserial`: Permite la comunicación por puerto COM (Serial) entre Python y la ESP32.
+    * `numpy`: Utilizado por OpenCV para el manejo estructurado de los píxeles y matrices de las imágenes.
+    * *(Las librerías `os` y `time` vienen preinstaladas en Python).*
+
+**Entorno de Arduino:**
+* **Arduino IDE:** Para compilar y subir el código C++ a la placa.
+* **Gestor de tarjetas ESP32:** Debes tener instalado el paquete de placas de Espressif en el Arduino IDE para que reconozca la ESP32.
+* **Librería de Servomotor (Recomendado):** Si usas la librería estándar `Servo.h` y te da problemas, te recomiendo instalar la librería `ESP32Servo` desde el Gestor de Librerías del Arduino IDE, ya que está optimizada para el hardware de la ESP32.
